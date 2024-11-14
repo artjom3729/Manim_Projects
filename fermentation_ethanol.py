@@ -59,11 +59,11 @@ class Fermentation(Scene):
 
         basicarrow1 = MathTex(r"\xrightarrow[\text{Glükolüüs}]{2\:\text{ATP}\:\rightarrow\:4\:\text{ATP}}",tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
         basicarrow2 = MathTex(r"\xrightarrow[\text{Püruvaadi dekarboksülaas}]{+\text{H}^+}",tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-        basicarrow3 = MathTex(r"\xrightarrow[\text{Alkoholi dehüdrogenaas}]{\text{NADH}\:+\:\text{H}^+\:\rightarrow\:\text{NAD}^+}",tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
+        basicarrow3 = MathTex(r"\xrightarrow[\text{Alkoholi dehüdrogenaas}]{\text{NADH}^+\text{H}^+\:\rightarrow\:\text{NAD}^+}",tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
 
         self.play(Write(glucose), run_time=timex)
-        self.play(glucose.animate.scale(siz), run_time=timex/3)
-        self.play(glucose.animate.shift(LEFT * 4), run_time=timex/3)
+        self.play(glucose.animate.scale(siz), run_time=timex/2)
+        self.play(glucose.animate.shift(LEFT * 4), run_time=timex/2)
         self.play(Write(basicarrow1), run_time=timex)
 
         pyruvate.shift(RIGHT * 4)
@@ -74,13 +74,13 @@ class Fermentation(Scene):
 
         self.play(Unwrite(glucose), run_time=timex/3)
         self.play(Unwrite(basicarrow1), run_time=timex/3)
-        self.play(pyruvate.animate.shift(LEFT * 8), run_time=timex/3)
+        self.play(pyruvate.animate.shift(LEFT * 8), run_time=timex/2)
 
         acetaldehyde.shift(RIGHT * 4)
-        acetaldehyde.shift(UP * 2)
+        acetaldehyde.shift(UP * 1.5)
         pluss.shift(RIGHT * 4)
         co2.shift(RIGHT * 4)
-        co2.shift(DOWN * 2)
+        co2.shift(DOWN * 1)
 
         self.play(Write(basicarrow2), run_time=timex)
         self.play(Write(acetaldehyde), run_time=timex)
@@ -93,7 +93,8 @@ class Fermentation(Scene):
         self.play(Unwrite(basicarrow2), run_time=timex/3)
         self.play(Unwrite(pluss), run_time=timex/6)
         self.play(Unwrite(co2), run_time=timex/3)
-        self.play(acetaldehyde.animate.shift(LEFT * 6.9), run_time=timex)
+        self.play(acetaldehyde.animate.shift(LEFT * 8), run_time=timex/2)
+        self.play(acetaldehyde.animate.shift(DOWN * 1.5), run_time=timex/2)
 
         ethanol.shift(RIGHT * 4)
 
@@ -105,6 +106,6 @@ class Fermentation(Scene):
         self.play(Unwrite(acetaldehyde), run_time=timex/3)
         self.play(Unwrite(basicarrow3), run_time=timex/3)
 
-        self.play(ethanol.animate.shift(LEFT * 4), run_time=timex/3)
-        self.play(ethanol.animate.scale(4), run_time=timex/3)
+        self.play(ethanol.animate.shift(LEFT * 4), run_time=timex/2)
+        self.play(ethanol.animate.scale(4), run_time=timex/2)
         self.wait(0.1)

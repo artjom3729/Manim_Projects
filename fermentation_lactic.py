@@ -12,9 +12,9 @@ myChemTemplate = TexTemplate(
                     """
                     )
 
-timex: int = 0.4
+timex: int = 1
 
-siz: int = 0.5
+siz: int = 0.6
 
 class Fermentation(Scene):
     def construct(self):
@@ -32,223 +32,44 @@ class Fermentation(Scene):
             tex_template=myChemTemplate
         ).scale(siz).set_stroke(width=2)
 
-        fructose_6_phosphate = Tex(
-            r"""\chemname{\chemfig{OH-[:182,,1]-[:242](<:[:338,,,1]OH)-[:254](<[:308,,,1]OH)-[:182](%
-            <:[:236,,,2]HO)-[:110](-[:38]O-[:326])<[:164]-[:104]O-[:164]P(=[:224]O)(%
-            -[:104,,,2]^{-}O)-[:164,,,2]^{-}O}}{Fruktoos-6-fosfaat}""",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
-        fructose_1_6_bisphosphate = Tex(
-            r"""\chemname{\chemfig{HO>:[:54,,2]-[,1.375](<[:306,,,1]OH)-[:74.2,1.177](<:[:338,,,1]OH)%
-            (<[:77.3,1.192]-[:21]O-P(-[:95]{O}{^{-}})(%
-            -[:2.5]{O}{^{-}})=[:270]O)-[:135.7,1.408]O-[:216,1.375](%
-            -[:288,1.375])<[:162]-[:102]O-[:160.1,1.011]P(=[:242.9,1.031]O)(%
-            -[:152.4,0.966,,2]^{-}O)-[:60.5,0.977]{O}{^{-}}}}{Fruktoos-1,6-bisfosfaat}""",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
-        glyceraldehyde_3_phosphate = Tex(
-            r"""\chemname{\chemfig{O=[:120]-[:60](-[,,,1]OH)-[:120]-[:60]O-[:120]P(=[:60]O)(%
-            -[:180,,,2]^{-}O)-[:120,,,2]^{-}O}}{Glütseeraldehüüd-3-fosfaat}""",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
-        dihydroxyacetone_phosphate = Tex(
-            r"""\chemname{\chemfig{O=[:180](-[:240]-[:300,,,1]OH)-[:120]-[:60]O-[:120]P(=[:60]O)(%
-            -[:180,,,2]^{-}O)-[:120,,,2]^{-}O}}{Dihüdroksüatsetoonfosfaat}""",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
-        bisphosphoglycerate = Tex(
-            r"""\chemname{\chemfig{O=(-[:60]O-[:120]P(-[:180,,,2]^{-}O)(-[:120,,,2]^{-}O)=[:60]O)-[:300](%
-            <:[,,,1]OH)-[:240]-[:300]O-[:240]P(=[:180]O)(-[:240,,,2]^{-}O)-[:300,,,1]O^{-}}}{1,3-bisfosfoglütseraat}""",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
-        phosphoglycerate3 = Tex(
-            r"""\chemname{\chemfig{O=(-[:300,,,1]OH)-[:60](-[,,,1]OH)-[:120]-[:60]O-[:120]P(=[:60]O)(%
-            -[:180,,,2]^{-}O)-[:120,,,2]^{-}O}}{3-fosfoglütseraat}""",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
-        phosphoglycerate2 = Tex(
-            r"""\chemname{\chemfig{O=[:270](-[:330,,,1]OH)-[:210](-[:270]-[:330,,,1]OH)-[:150]O%
-            -[:210]P(=[:270]O)(-[:210,,,2]^{-}O)-[:150,,,2]^{-}O}}{2-fosfoglütseraat}""",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
-        phosphoenolpyruvate = Tex(
-            r"""\chemname{\chemfig{=[:30](-[:330](-[:30]{O}{^{-}})=[:270]O)-[:90]O%
-            -[:30]P(=[:120]O)(-[:30]{O}{^{-}})%
-            -[:300]{O}{^{-}}}}{Fosfoenoolpüruvaat}""",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
         pyruvate = Tex(
-            r"\chemname{\chemfig{-[:120](=[:60]O)-[:180](=[:240]O)-[:120]{O}{^{-}}}}{Püruvaat}",
+            r"\chemname{\chemfig{-[:120](=[:60]O)-[:180](=[:240]O)-[:120]O^{-}}}{Püruvaat}",
             tex_template=myChemTemplate
         ).scale(siz).set_stroke(width=2)
 
-        acetaldehyde = Tex(
-            r"\chemname{\chemfig{-[:330]=[:30]O}}{Atsetaaldehüüd}",
+        lactate = Tex(
+            r"\chemname{\chemfig{-[:120](-[:60,,,1]O^{-})-[:180](=[:240]O)-[:120,,,2]^{-}O}}{Laktaat}",
             tex_template=myChemTemplate
         ).scale(siz).set_stroke(width=2)
 
-        ethanol = Tex(
-            r"\chemname{\chemfig{-[:330]-[:30,,,1]OH}}{Etanool}",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
-        atp_to_adp = MathTex(r"\xrightarrow[\text{Heksoosi kinaas}]{\text{ATP}\: \rightarrow\: \text{ADP + H}^{+}}",tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-
-        reversible = MathTex(r"\xrightleftharpoons[\text{Fosfoglükoosi isomeraas}]{}", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-
+        basicarrow1 = MathTex(r"\xrightarrow[\text{Glükolüüs}]{2\:\text{ATP}\:\rightarrow\:4\:\text{ATP}}",tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
+        basicarrow2 = MathTex(r"\xrightarrow[\text{Laktaadi dehüdrogenaas}]{\text{NADH}^{+}\text{H}^{+} \:\rightarrow\: \text{NAD}^{+}}",tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
 
         self.play(Write(glucose), run_time=timex)
-        self.play(glucose.animate.scale(siz), run_time=timex*0.8)
-        self.play(glucose.animate.shift(LEFT * 4), run_time=timex*0.8)
-        self.play(Write(atp_to_adp), run_time=timex*0.8)
-
-        glucose_6_phosphate.shift(RIGHT * 4)
-
-        self.play(Write(glucose_6_phosphate), run_time=timex)
-        self.play(Unwrite(glucose), run_time=timex)
-        self.play(Unwrite(atp_to_adp), run_time=timex*0.8)
-        self.play(glucose_6_phosphate.animate.shift(LEFT * 8), run_time=timex*0.8)
-        self.play(Write(reversible), run_time=timex*0.8)
-
-        fructose_6_phosphate.shift(RIGHT * 4)
-
-        self.play(Write(fructose_6_phosphate), run_time=timex)
-        self.play(Unwrite(glucose_6_phosphate), run_time=timex)
-        self.play(Unwrite(reversible), run_time=timex*0.8)
-        self.play(fructose_6_phosphate.animate.shift(LEFT * 8), run_time=timex*0.8)
-
-        arrow1 = MathTex(r"\xrightarrow[\text{Fosfofruktoosi kinaas}]{\text{ATP}\: \rightarrow\: \text{ADP + H}^{+}}",tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-
-        self.play(Write(arrow1), run_time=timex*0.8)
-
-        fructose_1_6_bisphosphate.shift(RIGHT * 4)
-
-        self.play(Write(fructose_1_6_bisphosphate), run_time=timex)
-        self.play(Unwrite(fructose_6_phosphate), run_time=timex)
-        self.play(Unwrite(arrow1), run_time=timex*0.8)
-        self.play(fructose_1_6_bisphosphate.animate.shift(LEFT * 8), run_time=timex*0.8)
-
-        arrow2 = MathTex(r"\xrightleftharpoons[\text{Aldolaas}]{}", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-
-        self.play(Write(arrow2), run_time=timex*0.8)
-
-        glyceraldehyde_3_phosphate.shift(RIGHT * 2)
-        dihydroxyacetone_phosphate.shift(RIGHT * 5)
-
-        pluss = MathTex(r"+", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-        pluss.shift(RIGHT * 3.5)
-
-        self.play(Write(glyceraldehyde_3_phosphate), run_time=timex)
-        self.play(Write(pluss), run_time=timex*0.3)
-        self.play(Write(dihydroxyacetone_phosphate), run_time=timex)
-
-        self.play(Unwrite(fructose_1_6_bisphosphate), run_time=timex)
-        self.play(Unwrite(arrow2), run_time=timex*0.8)
-        self.play(Unwrite(pluss), run_time=timex*0.3)
-        self.play(Unwrite(glyceraldehyde_3_phosphate), run_time=timex)
-
-        self.play(dihydroxyacetone_phosphate.animate.shift(LEFT * 9), run_time=timex*0.8)
-
-        arrow3 = MathTex(r"\xrightleftharpoons[\text{Trioosfosfaadi isomeraas}]{}", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-
-        self.play(Write(arrow3), run_time=timex*0.8)
-
-        glyceraldehyde_3_phosphate = Tex(
-            r"""\chemname{\chemfig{O=[:120]-[:60](-[,,,1]OH)-[:120]-[:60]O-[:120]P(=[:60]O)(%
-            -[:180,,,2]^{-}O)-[:120,,,2]^{-}O}}{Glütseeraldehüüd-3-fosfaat}""",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
-        glyceraldehyde_3_phosphate.shift(RIGHT * 4)
-
-        self.play(Write(glyceraldehyde_3_phosphate), run_time=timex)
-
-        self.play(Unwrite(arrow3), run_time=timex*0.8)
-        self.play(Unwrite(dihydroxyacetone_phosphate), run_time=timex)
-
-        self.play(glyceraldehyde_3_phosphate.animate.shift(LEFT * 8), run_time=timex*0.8)
-
-        arrow4 = MathTex(r"\xrightleftharpoons[\text{GAPDH}]{\text{NAD}^{+} + \text{P}_i \:\rightarrow\: \text{NADH}^{+}\text{H}^{+}}", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-
-        self.play(Write(arrow4), run_time=timex*0.8)
-
-        bisphosphoglycerate.shift(RIGHT * 4)
-
-        self.play(Write(bisphosphoglycerate), run_time=timex)
-        
-        self.play(Unwrite(glyceraldehyde_3_phosphate), run_time=timex)
-        self.play(Unwrite(arrow4), run_time=timex*0.8)
-        self.play(bisphosphoglycerate.animate.shift(LEFT * 8), run_time=timex*0.8)
-
-        arrow5 = MathTex(r"\xrightleftharpoons[\text{Fosfoglütseraadi kinaas}]{\text{ADP + P}_i \:\rightarrow\: \text{ATP}}", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-
-        self.play(Write(arrow5), run_time=timex*0.8)
-
-        phosphoglycerate3.shift(RIGHT * 4)
-
-        self.play(Write(phosphoglycerate3), run_time=timex)
-
-        self.play(Unwrite(bisphosphoglycerate), run_time=timex)
-        self.play(Unwrite(arrow5), run_time=timex*0.8)
-        self.play(phosphoglycerate3.animate.shift(LEFT * 8), run_time=timex*0.8)
-
-        phosphoglycerate2.shift(RIGHT * 4)
-        arrow6 = MathTex(r"\xrightleftharpoons[\text{Fosfoglütseraadi mutaas}]{}", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-
-        self.play(Write(arrow6), run_time=timex*0.8)
-        self.play(Write(phosphoglycerate2), run_time=timex)
-
-        self.play(Unwrite(phosphoglycerate3), run_time=timex)
-        self.play(Unwrite(arrow6), run_time=timex*0.8)
-        self.play(phosphoglycerate2.animate.shift(LEFT * 8), run_time=timex*0.8)
-
-        phosphoenolpyruvate.shift(RIGHT * 4)
-        arrow7 = MathTex(r"\xrightleftharpoons[\text{Enolaas}]{\uparrow\: \text{H}_2\text{O}}", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-
-        self.play(Write(arrow7), run_time=timex*0.8)
-        self.play(Write(phosphoenolpyruvate), run_time=timex)
-
-        self.play(Unwrite(phosphoglycerate2), run_time=timex)
-        self.play(Unwrite(arrow7), run_time=timex*0.8)
-        self.play(phosphoenolpyruvate.animate.shift(LEFT * 8), run_time=timex*0.8)
+        self.play(glucose.animate.scale(siz), run_time=timex/2)
+        self.play(glucose.animate.shift(LEFT * 4), run_time=timex/2)
+        self.play(Write(basicarrow1), run_time=timex)
 
         pyruvate.shift(RIGHT * 4)
-        arrow8 = MathTex(r"\xrightarrow[\text{Püruvaadi kinaas}]{\text{ADP + P}_i \:\rightarrow\: \text{ATP}}", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
 
-        self.play(Write(arrow8), run_time=timex*0.8)
         self.play(Write(pyruvate), run_time=timex)
 
-        self.play(Unwrite(phosphoenolpyruvate), run_time=timex)
-        self.play(Unwrite(arrow8), run_time=timex*0.8)
-        self.play(pyruvate.animate.shift(LEFT * 8), run_time=timex*0.8)
+        self.wait(2)
 
-        acetaldehyde.shift(RIGHT * 4)
-        arrow9 = MathTex(r"\xrightarrow[\text{Püruvaadi dekarboksülaas}]{+\:\text{H}^{+}; \:\uparrow\: \text{CO}_2}", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
+        self.play(Unwrite(glucose), run_time=timex/3)
+        self.play(Unwrite(basicarrow1), run_time=timex/3)
+        self.play(pyruvate.animate.shift(LEFT * 8), run_time=timex/2)
 
-        self.play(Write(arrow9), run_time=timex*0.8)
-        self.play(Write(acetaldehyde), run_time=timex)
+        lactate.shift(RIGHT * 4)
 
-        self.play(Unwrite(pyruvate), run_time=timex)
-        self.play(Unwrite(arrow9), run_time=timex*0.8)
-        self.play(acetaldehyde.animate.shift(LEFT * 8), run_time=timex*0.8)
+        self.play(Write(basicarrow2), run_time=timex)
+        self.play(Write(lactate), run_time=timex)
 
-        ethanol.shift(RIGHT * 4)
-        arrow10 = MathTex(r"\xrightarrow[\text{Alkoholi dehüdrogenaas}]{\text{NADH}^{+}\text{H}^{+} \:\rightarrow\: \text{NAD}^{+}}", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
+        self.wait(2)
 
-        self.play(Write(arrow10), run_time=timex*0.8)
-        self.play(Write(ethanol), run_time=timex)
+        self.play(Unwrite(pyruvate), run_time=timex/3)
+        self.play(Unwrite(basicarrow2), run_time=timex/3)
+        self.play(lactate.animate.shift(LEFT * 4), run_time=timex/2)
+        self.play(lactate.animate.scale(4), run_time=timex/2)
 
-        self.play(Unwrite(acetaldehyde), run_time=timex)
-        self.play(Unwrite(arrow10), run_time=timex)
-
-        self.play(ethanol.animate.shift(LEFT * 4), run_time=timex)
-        self.play(ethanol.animate.scale(4), run_time=timex)
-        self.wait(0.2)
+        self.wait(0.1)
