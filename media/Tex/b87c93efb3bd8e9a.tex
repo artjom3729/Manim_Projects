@@ -1,0 +1,15 @@
+\documentclass[preview]{standalone}
+
+                        \usepackage{amsmath}
+                        \usepackage{amssymb}
+                        \usepackage{chemfig}
+                        \setchemfig{atom sep=2em,angle increment=45,bond offset=2pt,double bond sep=2pt}
+                    
+\begin{document}
+\begin{center}
+\chemfig{O=[:210](-[:270]O-[:330]P(-[:60]{O}{^{-}})(%
+            -[:330]{O}{^{-}})=[:240]O)-[:150](<[:90,,,1]OH)-[:210]%
+            -[:150]O-[:210]P(=[:120]O)(-[:300]{O}{^{-}})%
+            -[:210,,,2]^{-}O}
+\end{center}
+\end{document}
