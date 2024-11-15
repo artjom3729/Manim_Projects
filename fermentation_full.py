@@ -276,7 +276,10 @@ class FermentationFull(Scene):
 
         self.play(Unwrite(pyruvate), run_time=timex/3)
         self.play(Unwrite(arrow9), run_time=timex/3)
+        self.play(Unwrite(pluss), run_time=timex/6)
+        self.play(Unwrite(co2), run_time=timex/3)
         self.play(acetaldehyde.animate.shift(LEFT * 8), run_time=timex/2)
+        self.play(acetaldehyde.animate.shift(DOWN * 2), run_time=timex/2)
 
         ethanol.shift(RIGHT * 4)
         arrow10 = MathTex(r"\xrightarrow[\text{Alkoholi dehüdrogenaas}]{\text{NADH}^{+}\text{H}^{+} \:\rightarrow\: \text{NAD}^{+}}", tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
