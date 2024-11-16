@@ -25,13 +25,6 @@ class FermentationToAcetate(Scene):
             tex_template=myChemTemplate
         ).scale(1).set_stroke(width=2)
 
-        glucose_6_phosphate = Tex(
-            r"""\chemname{\chemfig{OH>:[:180,,1]-[:240](<:[:300,,,1]OH)-[:180](<[:240,,,2]HO)-[:120](%
-            <:[:180,,,2]HO)-[:60](-O-[:300])<[:120]-[:60]O-[:120]P(-[:60,,,1]O^{-})(%
-            -[:120,,,2]^{-}O)=[:180]O}}{Glükoos-6-fosfaat}""",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
         pyruvate = Tex(
             r"\chemname{\chemfig{-[:120](=[:60]O)-[:180](=[:240]O)-[:120]O^{-}}}{Püruvaat}",
             tex_template=myChemTemplate

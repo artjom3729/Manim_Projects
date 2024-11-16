@@ -25,25 +25,18 @@ class FermentationToLactate(Scene):
             tex_template=myChemTemplate
         ).scale(1).set_stroke(width=2)
 
-        glucose_6_phosphate = Tex(
-            r"""\chemname{\chemfig{OH>:[:180,,1]-[:240](<:[:300,,,1]OH)-[:180](<[:240,,,2]HO)-[:120](%
-            <:[:180,,,2]HO)-[:60](-O-[:300])<[:120]-[:60]O-[:120]P(-[:60,,,1]O^{-})(%
-            -[:120,,,2]^{-}O)=[:180]O}}{Glükoos-6-fosfaat}""",
-            tex_template=myChemTemplate
-        ).scale(siz).set_stroke(width=2)
-
         pyruvate = Tex(
             r"\chemname{\chemfig{-[:120](=[:60]O)-[:180](=[:240]O)-[:120]O^{-}}}{Püruvaat}",
             tex_template=myChemTemplate
         ).scale(siz).set_stroke(width=2)
 
         lactate = Tex(
-            r"\chemname{\chemfig{-[:120](-[:60,,,1]O^{-})-[:180](=[:240]O)-[:120,,,2]^{-}O}}{Laktaat}",
+            r"\chemname{\chemfig{-[:120](-[:60,,,1]O^{-})-[:180](=[:240]O)-[:120,,,2]O^{-}}}{Laktaat}",
             tex_template=myChemTemplate
         ).scale(siz).set_stroke(width=2)
 
         basicarrow1 = MathTex(r"\xrightarrow[\text{Glükolüüs}]{2\:\text{ATP}\:\rightarrow\:4\:\text{ATP}}",tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
-        basicarrow2 = MathTex(r"\xrightarrow[\text{Laktaadi dehüdrogenaas}]{\text{NADH}^{+}\text{H}^{+} \:\rightarrow\: \text{NAD}^{+}}",tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
+        basicarrow2 = MathTex(r"\xrightarrow[\text{Laktaadi dehüdrogenaas}]{\text{NADH}^{+}\text{H}^{+} \:\rightarrow\: \text{NADH}^{+}}",tex_template=myChemTemplate).scale(0.8).set_stroke(width=2)
 
         self.play(Write(glucose), run_time=timex)
         self.play(glucose.animate.scale(siz), run_time=timex/2)
